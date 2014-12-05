@@ -1,0 +1,53 @@
+body {
+	font-family: 'Droid Sans', sans-serif;
+	background: #eee;
+}
+.container-fluid {
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.navbar {
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+	border-bottom: 1px solid #ccc;
+}
+
+.navbar-header {
+	margin-top: 35px;
+	margin-bottom: 15px;
+}
+
+.navbar-brand {
+	height: inherit;
+
+}
+
+.navbar-brand h1 {
+	color: #333;
+	font-weight: bold;
+	font-size: 3em;
+	}
+
+nav li a {
+	color: #444;
+}
+
+.type-page {
+	width: 770px;
+	background: #FFF;
+	border-right: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
+	margin-right: 10px;
+	margin-top: 15px;
+	display: inline;
+	float: left;
+}
+
+img.wp-post-image {
+	width: 95%;
+}

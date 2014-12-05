@@ -1,7 +1,13 @@
+<?php 
+/*
+	Template Name: Left Sidebar
+*/ 
+?>
 <?php get_header(); ?>
 
 <section class="row">
-	<div class="col-md-8">
+	<!-- Primary Column -->
+	<div class="col-md-8 col-md-push-4">
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -10,10 +16,14 @@
 
 		<?php endwhile; else : ?>
 
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<p><?php _e( 'Sorry, no pages found.' ); ?></p>
 
 		<?php endif; ?>
 
+	</div>
+	<!-- Secondary Column -->
+	<div class="col-md-4 col-md-pull-8">
+		<h2>Sidebar</h2>
 	</div>
 </section>
 

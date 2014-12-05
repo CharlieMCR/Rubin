@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<section class="row">
-	<div class="col-md-8">
+<section class="row" >
+	<div <?php post_class('col-md-8'); ?>>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -10,7 +10,7 @@
 
 		<?php endwhile; else : ?>
 
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<p><?php _e( 'Sorry, no pages found.' ); ?></p>
 
 		<?php endif; ?>
 
