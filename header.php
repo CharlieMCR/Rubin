@@ -9,18 +9,18 @@
 
 	</head>
 
-	<body <?php body_class(); ?>>
+	<body <?php //body_class(); ?> id="top">
 	<div class="container">
 		<nav class="navbar navbar-default" role="navigation">
 			<!-- <div class="container-fluid"> -->
 				<div class="navbar-header">
 					<a class="navbar-brand" href="<?php bloginfo('url'); ?>"><h1><?php bloginfo('name'); ?></h1></a>
 
-					<!-- <a class="to_nav" href="#primary_nav">&#x2261;</a> -->
+					<a class="to_nav" href="#primary_nav">&#x2261;</a>
 				</div>
 			<!-- </div> -->
 		</nav>
-		<nav class="group nav" id="primary_nav">
+		<nav class="group nav header-nav">
 
 			<?php 
 

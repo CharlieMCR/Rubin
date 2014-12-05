@@ -1,0 +1,104 @@
+$border:#dbdbdb;
+$black:#444;
+
+body {
+	font-family: 'Droid Sans', sans-serif;
+	background: #eee;
+	background: url("../images/bg.jpg");
+	h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+}
+.container-fluid {
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.navbar {
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid $border;
+	.navbar-header {
+		margin-top: 35px;
+		margin-bottom: 15px;
+		.navbar-brand {
+			height: inherit;
+			h1 {
+				color: #333;
+				font-weight: bold;
+				font-size: 3em;
+				@media screen and (max-width: 768px) {
+					font-size: 2em;
+				}
+			}
+		}
+	}
+}
+
+.header-nav {
+	li:last-child {
+    	display: none;
+    }
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}		
+
+.footer-nav {
+		@media screen and (min-width: 768px) {
+        display: none;
+    }
+    li:last-child {
+    	
+    }
+}
+
+a.to_nav {
+    float: right;
+    color: $black;
+    // background: ;
+    text-decoration: none;
+    // padding: 12px 18px 12px;
+    font-size: 5em;
+    // font-weight: bold;
+    &:hover,
+    &:focus {
+        // color: ;
+        // background: ;
+    }
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+li a {
+	color: #444;
+}
+
+.page.type-page {
+	max-width: 98%;
+	background: #FFF;
+	border-right: 1px solid $border;
+	border-bottom: 1px solid $border;
+	margin: 15px 10px;
+	// display: inline;
+	// float: left;
+}
+
+img.wp-post-image {
+	max-width: 100%;
+	height: auto;
+}
+
+.row {
+	width: 100%;
+	// &:nth-of-type(1n+2) {
+	// 	border-bottom: 1px solid #ccc;
+	// }
+}
+
+footer {
+	border-top: 1px solid $border;
+}

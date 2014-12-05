@@ -5,7 +5,7 @@
 </footer>
 
 
-<nav class="group nav" id="primary_nav">
+<nav class="group nav footer-nav" id="primary_nav">
 
 	<?php 
 

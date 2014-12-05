@@ -7,7 +7,7 @@
 
 <section class="row">
 	<!-- Primary Column -->
-	<div class="col-md-8 col-md-push-4">
+	<div <?php post_class('col-md-7 col-md-push-5'); ?>>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -22,7 +22,7 @@
 
 	</div>
 	<!-- Secondary Column -->
-	<div class="col-md-4 col-md-pull-8">
+	<div <?php post_class('col-md-4 col-md-pull-7'); ?>>
 		<h2>Sidebar</h2>
 	</div>
 </section>
