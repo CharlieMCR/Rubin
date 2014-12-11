@@ -5,6 +5,9 @@ body {
   body h1, body h2, body h3, body h4, body h5, body h6 {
     font-family: 'Droid Sans', sans-serif; }
 
+.admin-bar .navbar-default {
+  margin-top: 30px; }
+
 .container-fluid {
   padding-right: 30px;
   padding-left: 30px; }
@@ -29,6 +32,9 @@ body {
         @media screen and (max-width: 768px) {
           .navbar-default .navbar-header .navbar-brand h1 {
             font-size: 2em; } }
+
+.current-menu-item > a {
+  text-decoration: underline; }
 
 .header-nav li:last-child {
   display: none; }
@@ -68,5 +74,18 @@ img.wp-post-image {
 
 footer {
   border-top: 1px solid #dbdbdb; }
+
+.slide-direction {
+  position: absolute;
+  display: inline;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 -0.5em;
+  padding: 0.025em 0.5em;
+  font-size: 2em; }
+  .slide-direction:last-child {
+    margin-left: -1em; }
+  .slide-direction:hover, .slide-direction:focus {
+    background: rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=main.css.map */

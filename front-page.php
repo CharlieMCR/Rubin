@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section class="row">
-	<div <?php post_class('col-md-8'); ?>>
+	<div <?php post_class('col-md-12'); ?>>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

@@ -1,11 +1,14 @@
 <?php get_header(); ?>
 
 <section class="row">
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<!-- Primary Column -->
 		<div class="col-md-8 col-md-push-4">
 
-			<?php the_field('image'); ?>
+			<?php //get_sidebar('project'); ?>
+
+			<div id="image-slider">
+				<?php the_field('image'); ?>
+			</div>
 
 		</div>
 		<!-- Secondary Column -->
@@ -20,7 +23,6 @@
 			</p>
 
 		</div>
-	<?php endwhile; endif; ?>
 </section>
 
 <?php get_footer(); ?>

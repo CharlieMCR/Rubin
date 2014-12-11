@@ -7,6 +7,10 @@ body {
 	background: url("../images/bg.jpg");
 	h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
 }
+
+.admin-bar .navbar-default {
+	margin-top: 30px;
+}
 .container-fluid {
 	padding-right: 30px;
 	padding-left: 30px;
@@ -35,6 +39,10 @@ body {
 			}
 		}
 	}
+}
+
+.current-menu-item > a {
+	text-decoration: underline;
 }
 
 .header-nav {
@@ -101,4 +109,21 @@ img.wp-post-image {
 
 footer {
 	border-top: 1px solid $border;
+}
+
+.slide-direction {
+	position: absolute;
+	display: inline;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 -0.5em;
+	padding: 0.025em 0.5em;
+	font-size: 2em;
+	&:last-child {
+		margin-left: -1em;
+	}
+	&:hover,
+	&:focus {
+		background: rgba(0,0,0,0.2);
+	}
 }
