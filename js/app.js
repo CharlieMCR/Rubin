@@ -2,10 +2,11 @@ jQuery(document).ready(function($) {
 
     var $container = $('#image-slider'); // div containing slider
     var $slider = $('p', $container); // p tag containing slides
-    var $slide = $('img', $container); // each slide
+    var $slide = $('>', $slider); // each slide
     var $totalSlides = $slide.length;
     var $sliderMove = parseInt($slider.css('margin-left'));
     var $slideWidth = $slide.width();
+    console.log($slideWidth);
 
     function setSlide() {
         $slide.css({
@@ -13,7 +14,8 @@ jQuery(document).ready(function($) {
             'margin': '0',
             'padding': '0',
             'height': 'auto',
-            'max-width': '100%'
+            'max-width': '100%',
+            'width': $slideWidth
             });
         $slider.css({
             'width': $slide.width()*$totalSlides*2
@@ -37,8 +39,8 @@ jQuery(document).ready(function($) {
             $($slider).find('>:first-child').css({'margin-left': $slide.width()});
         };
 
-        $('.slide-direction').css({'top': $slide.height()/2});
-        $('#next').css({'left': $container.width() });
+        // $('.slide-direction').css({'top': $slide.height()/2});
+        $('#next').css({'right': parseInt($container.css('margin-right'))+15 });
     }
 
     function nextSlide() {

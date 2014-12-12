@@ -14,7 +14,7 @@
 
 	<?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
 
-	<div class="col-md-3">
+	<div class="col-sm-6 col-md-4 col-lg-3">
 		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
 		<h1><?php the_title(); ?></h1>
 	</div>
