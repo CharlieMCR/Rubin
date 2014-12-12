@@ -6,7 +6,15 @@ jQuery(document).ready(function($) {
     var $totalSlides = $slide.length;
     var $sliderMove = parseInt($slider.css('margin-left'));
     var $slideWidth = $slide.width();
-    console.log($slideWidth);
+
+    function setHeight() {
+	    var $projectHeight = $('.project').map(function() {
+	    	return $(this).height();
+	    }).get();
+	    $projectHeight = Math.max.apply(Math, $projectHeight);
+	    $('.project').css({'height': $projectHeight});
+	}
+	setHeight();
 
     function setSlide() {
         $slide.css({
@@ -41,6 +49,10 @@ jQuery(document).ready(function($) {
 
         // $('.slide-direction').css({'top': $slide.height()/2});
         $('#next').css({'right': parseInt($container.css('margin-right'))+15 });
+        $('#image-slider a img').css({
+        	'display': 'block',
+        	'margin': '0 auto'
+        });
     }
 
     function nextSlide() {

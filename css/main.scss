@@ -103,7 +103,7 @@ img.wp-post-image {
 
 .row {
 	width: 100%;
-	// margin: 50px auto;
+	margin-bottom: 50px;
 	@media screen and (max-width: 768px) {
         margin: 50px auto;
     }
@@ -143,5 +143,13 @@ footer {
 	&:hover,
 	&:focus {
 		background: rgba(0,0,0,0.2);
+	}
+}
+
+#image-slider {
+	a img {
+		// display: block;
+		// margin: 0 auto;
+		// color: red;
 	}
 }
