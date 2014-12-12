@@ -111,6 +111,17 @@ footer {
 	border-top: 1px solid $border;
 }
 
+.slider-container {
+	position: relative;
+}
+
+#image-slider {
+	overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
 .slide-direction {
 	position: absolute;
 	display: inline;
@@ -120,7 +131,7 @@ footer {
 	padding: 0.025em 0.5em;
 	font-size: 2em;
 	&:last-child {
-		margin-left: -1em;
+		// margin-left: -1em;
 	}
 	&:hover,
 	&:focus {

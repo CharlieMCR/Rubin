@@ -2,7 +2,7 @@
 
 <section class="row">
 		<!-- Primary Column -->
-		<div class="col-md-8 col-md-push-4">
+		<div class="col-md-8 col-md-push-4 slider-container">
 
 			<?php //get_sidebar('project'); ?>
 
