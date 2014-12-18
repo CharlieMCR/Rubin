@@ -1,93 +1,107 @@
 jQuery(document).ready(function($) {
 
-    var $container = $('#image-slider'); // div containing slider
-    var $slider = $('p', $container); // p tag containing slides
-    var $slide = $('>', $slider); // each slide
-    var $totalSlides = $slide.length;
-    var $sliderMove = parseInt($slider.css('margin-left'));
-    var $slideWidth = $slide.width();
+	var $sliderContainer = $('.image-gallery');
+	var $slide = $('> >', $sliderContainer);
+	var $overlay = $('<div id="overlay"></div>');
+	var $innerOverlay = $('<div class="image-lb image-gallery"></div>');
+	var $ulLb = $('<ul>/<ul>');
+	var $img = '';
+	var $images = $('img', $slide);
+	var i = 0;
+	var j = 0;
+	var $slider = '';
 
-    function setHeight() {
-	    var $projectHeight = $('.project').map(function() {
-	    	return $(this).height();
-	    }).get();
-	    $projectHeight = Math.max.apply(Math, $projectHeight);
-	    $('.project').css({'height': $projectHeight});
+	// function setHeight() {
+	// 	var $projectHeight = $('.project').map(function() {
+	// 		return $(this).height();
+	// 	}).get();
+	// 	$projectHeight = Math.max.apply(Math, $projectHeight);
+	// 	$('.project').css({'height': $projectHeight});
+	// }
+	// // setHeight();
+
+	function navigation(div) {
+		div.prepend('<p id="prev" class="prev slide-direction"><</p>');
+		div.append('<p id="next" class="next slide-direction">></p>');
+		$slider = $('> >', div);
+		return $slider;
 	}
-	setHeight();
 
-    function setSlide() {
-        $slide.css({
-            'float': 'left',
-            'margin': '0',
-            'padding': '0',
-            'height': 'auto',
-            'max-width': '100%',
-            'width': $slideWidth
-            });
-        $slider.css({
-            'width': $slide.width()*$totalSlides*2
-        });
-        $container.css({
-            'width': $slide.width()*2,
-            'max-width': '100%'
-        });
-        
-        if ($container.width() < $slideWidth*2) {
-            $container.css({'width': $slide.width()});
-            if ($container.width() < $slide.width()) {
-            	$slide.css({'width': $container.width()});
-            } else {
-            	$slide.css({'width': $slideWidth});
-            };
-        };
+	function slideNav(direction, slider) {
+		if (direction == -1) {
+			if (i > 0) {
+				i--;
+				showSlide(i, slider);
+			}
+		};
+		if (direction == 1) {
+			if (i >= $slide.length-1) {
+				i = 0;
+				showSlide(i, slider);
+			} else {
+				i++;
+				showSlide(i, slider);
+			};
+		};
+	}
 
-        // move first slide to right half if two slides displayed
-        if ($container.width()/$slide.width() > 1) {
-            $($slider).find('>:first-child').css({'margin-left': $slide.width()});
-        };
+	function showSlide(i) {
+		$slide.hide();
+		$slide.eq(i).show();
+		// $slide.eq(i+1).show();
+	}
 
-        // $('.slide-direction').css({'top': $slide.height()/2});
-        $('#next').css({'right': parseInt($container.css('margin-right'))+15 });
-        $('#image-slider a img').css({
-        	'display': 'block',
-        	'margin': '0 auto'
-        });
-    }
+	if ($slide.length > 1) {
+		showSlide(i);
+		navigation($sliderContainer);
+	};
 
-    function nextSlide() {
-        if ($sliderMove > -($slider.width()/2-$slide.width())) {
-            $sliderMove-=$container.width();
-        } else {
-            $sliderMove = 0;
-        };
-        $slider.css({'margin-left': $sliderMove});
-    }
+	function lightbox() {
+		var $div = $('<div></div>');
+		$slide.each(function(i) {
+			$div.append('<img>');
+			$('img', $div).eq(i).attr('src', $slide.eq(i).attr('href'));
+			$('img', $div).eq(i).attr('alt', $('img', $slide).eq(i).attr('alt'));
+		});
+		$innerOverlay.append($div);
+		$overlay.append($innerOverlay);
+		$('body').append($overlay);
+		$img = $('img', $div);
+		navigation($innerOverlay);
+		return $innerOverlay;
+		return $img;
+		$slide = $img;
+	}
 
-    function prevSlide() {
-        if ($sliderMove < 0) {
-            $sliderMove+=$container.width();
-        };
-        $slider.css({'margin-left': $sliderMove});
-    }
+	function closeOverlay() {
+		i = j;
+		$overlay.hide();
+		$slide = $('> >', $sliderContainer);
+	}
+	lightbox();
 
-    if ($totalSlides > 1) {
+	$('.prev').on('click', function(){slideNav(-1, $slide)});
+	$('.next').on('click', function(){slideNav(1, $slide)});
 
-        $slider.before('<p id="prev" class="slide-direction"><</p>');
-        $slider.after('<p id="next" class="slide-direction">></p>');
+	$slide.click(function(event) {
+		event.preventDefault();
+		$overlay.css({'display': 'flex'});
+		$slide = $img;
+		j = i;
+		showSlide(i);
+		return j;
+	})
 
-        $('#next').click(nextSlide);
-        $('#prev').click(prevSlide);
+	$(document).keydown(function(e) {
+		if (e.keyCode === 27) {
+			closeOverlay();
+		}
+	});
 
-        setSlide();
-        var w = $(window).width();
-        $(window).resize(function(e) {
-            if ($(this).width() <= w-50 || $(this).width() >= w+50) {
-                setSlide();
-            };
-            
-        });
-
-    }; // end if
-
+	$overlay.click(function(e) {
+		if (e.target.id === 'overlay') {
+			closeOverlay();
+		};
+	})
+	
 }); // end ready

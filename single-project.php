@@ -6,7 +6,7 @@
 
 			<?php //get_sidebar('project'); ?>
 
-			<div id="image-slider">
+			<div id="image-slider" class="image-gallery">
 				<?php the_field('image'); ?>
 			</div>
 
@@ -24,5 +24,4 @@
 
 		</div>
 </section>
-
 <?php get_footer(); ?>
